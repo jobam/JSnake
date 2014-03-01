@@ -29,39 +29,39 @@ public class Body
 	
 	//===================================================================
 	
-	int		getX()
+	public int		getX()
 	  {
 	    return (this.x);
 	  }
 
-	int 	getY()
+	public int 	getY()
 	  {
 	    return (this.y);
 	  }
 
-	static int		getN()
+	public static int		getN()
 	  {
 	    return (n);
 	  }
 
-	RectangleShape	getSquare()
+	public RectangleShape	getSquare()
 	  {
 	    return (this.square);
 	  }
 
-	void	setX(int x)
+	public void	setX(int x)
 	{
 	  this.x = x % 800;
 	  this.x = (this.x < 0) ? (800 + x) % 800 : this.x;
 	}
 
-	void	setY(int y)
+	public void	setY(int y)
 	{
 	  this.y = y % 800;
 	  this.y = (this.y < 0) ? (800 + y) % 800 : this.y;
 	}
 
-	static void	setN(int x)
+	public static void	setN(int x)
 	{
 	  n = x;
 	}
