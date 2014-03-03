@@ -1,15 +1,17 @@
 package snake;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.jsfml.graphics.RenderWindow;
 
 public class Snake 
 {
-	public ArrayList<Body> body;
+	public List<Body> body;
 	
 	public Snake()
 	{
+		body = new ArrayList<Body>();
 		Body temp = new Body(390, 400);
 	    Body temp2 = new Body(378, 400);
 	    Body temp3 = new Body(366, 400);
@@ -82,7 +84,7 @@ public void	print(RenderWindow dest)
       }
 }
 
-public int	lost()
+public boolean	lost()
 {
 	Body	temp;
 	int		i = 0;
@@ -97,10 +99,10 @@ public int	lost()
 	    {
 		  temp = this.body.get(i);
 	      if (hx == temp.getX() && hy == temp.getY())
-		return (1);
+		return (true);
 	      i++;
 	    }
-	  return (0);
+	  return (false);
 }
 
 

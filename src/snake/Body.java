@@ -14,7 +14,6 @@ public class Body
 	{
 		this.x = 0;
 		this.y = 0;
-		n++;
 		this.square = new RectangleShape(new Vector2f(12, 12));
 		this.square.setPosition(this.x, this.y);
 	}
@@ -32,7 +31,7 @@ public class Body
 	public int		getX()
 	  {
 	    return (this.x);
-	  }
+	  } 
 
 	public int 	getY()
 	  {
@@ -61,8 +60,8 @@ public class Body
 	  this.y = (this.y < 0) ? (800 + y) % 800 : this.y;
 	}
 
-	public static void	setN(int x)
+	public static void	increaseN()
 	{
-	  n = x;
+	  n += 1;
 	}
 }

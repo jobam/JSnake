@@ -2,10 +2,11 @@ package snake;
 
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RectangleShape;
+import org.jsfml.system.Vector2f;
 
 public class Food 
 {
-private	RectangleShape square;
+private	RectangleShape 	square;
 private int				x;
 private int				y;
 
@@ -13,6 +14,7 @@ private int				y;
 
 public Food(int x, int y)
 {
+	this.square = new RectangleShape(new Vector2f(10, 10));
 	this.x = x;
 	this.y = y;
 	this.square.setFillColor(Color.RED);
@@ -45,28 +47,5 @@ public void	setY(int y)
   this.y = y % 800;
   this.y = (this.y < 0) ? (800 + y) % 800 : this.y;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
