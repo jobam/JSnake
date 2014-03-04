@@ -1,5 +1,11 @@
 package snake;
 
+import java.io.IOException;
+import java.nio.file.Paths;
+
+import org.jsfml.graphics.Color;
+import org.jsfml.graphics.Font;
+import org.jsfml.graphics.Text;
 import org.jsfml.system.Clock;
 import org.jsfml.window.Keyboard;
 import org.jsfml.window.event.Event;
@@ -20,16 +26,28 @@ public class Game {
 		this.clock = new Clock();
 		this.app.screen.setFramerateLimit(80);
 		this.direction = 'r';
-		this.speed = 37;
+		this.speed = 20;
 	}
 
 	// ===========================================================================
 
-	public int exec() {
+	public void exec() {
 		long last_move = clock.getElapsedTime().asMilliseconds();
 		long timeDiff = 0;
 		int plost = 0;
+		Font font = new Font();
 
+		try {
+			font.loadFromFile(Paths.get("arial.ttf"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Text text = new Text("Socre : 0", font, 15);
+		text.setColor(Color.YELLOW);
+		text.setStyle(Text.BOLD);
+		text.setPosition(700, 20);
+		
 		while (this.app.screen.isOpen()) {
 			timeDiff = clock.getElapsedTime().asMilliseconds() - last_move;
 			manageEvent();
@@ -46,11 +64,11 @@ public class Game {
 				last_move = clock.getElapsedTime().asMilliseconds();
 			}
 			this.snake.print(this.app.screen);
+			text.setString("Score : " + this.snake.getScore());
 			this.app.screen.draw(this.food.getSquare());
+			this.app.screen.draw(text);
 			this.app.screen.display();
 		}
-
-		return (Body.getN());
 	}
 
 	public void checkEntry(Event event) {
