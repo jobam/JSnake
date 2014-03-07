@@ -15,6 +15,6 @@ public class Window
 		this.name = "JSnake";
 		this.width = 800;
 		this.height = 800;
-		this.screen = new RenderWindow(new VideoMode(800, 800), "JSnake ", WindowStyle.CLOSE | WindowStyle.TITLEBAR);
+		this.screen = new RenderWindow(new VideoMode(this.width, this.height), this.name, WindowStyle.CLOSE | WindowStyle.TITLEBAR);
 	}
 }

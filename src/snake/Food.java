@@ -9,16 +9,17 @@ public class Food
 private	RectangleShape 	square;
 private int				x;
 private int				y;
+private long			time;
 
 
-
-public Food(int x, int y)
+public Food(int x, int y, long time)
 {
 	this.square = new RectangleShape(new Vector2f(10, 10));
 	this.x = x;
 	this.y = y;
 	this.square.setFillColor(Color.RED);
     this.square.setPosition(x, y);
+    this.time = time;
 }
 
 public int getX()
@@ -46,6 +47,14 @@ public void	setY(int y)
 {
   this.y = y % 800;
   this.y = (this.y < 0) ? (800 + y) % 800 : this.y;
+}
+
+public long getTime() {
+	return time;
+}
+
+public void setTime(long time) {
+	this.time = time;
 }
 
 }
